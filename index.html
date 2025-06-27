@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Management System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Welcome to SREYAS Hospital</h1>
+            <nav>
+                <ul>
+                    <li><a href="#" onclick="showSection('home')">Home</a></li>
+                    <li><a href="#" onclick="showSection('patients')">Patients</a></li>
+                    <li><a href="#" onclick="showSection('doctors')">Doctors</a></li>
+                    <li><a href="#" onclick="showSection('appointments')">Appointments</a></li>
+                    <li><a href="#" onclick="showSection('billing')">Billing</a></li>
+                    <li><a href="#" onclick="showSection('prescriptions')">Prescriptions</a></li>
+                    <li><a href="#" onclick="showSection('admin')">Admin</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home">
+            <div class="container">
+                <h2>About Us</h2>
+                <p>Welcome to SREYAS Hospital. We are dedicated to providing the best healthcare services.</p>
+            </div>
+        </section>
+
+        <section id="patients" style="display:none;">
+            <div class="container">
+                <h2>Patients</h2>
+                <button onclick="showPatientForm()">Add Patient</button>
+                <div id="patientForm" style="display:none;">
+                    <h3>Register Patient</h3>
+                    <form id="patientRegistrationForm">
+                        <label for="patientName">Name:</label>
+                        <input type="text" id="patientName" name="patientName" required><br>
+                        <label for="patientAge">Age:</label>
+                        <input type="number" id="patientAge" name="patientAge" required><br>
+                        <button type="button" onclick="registerPatient()">Register</button>
+                    </form>
+                </div>
+                <h3>Patient List</h3>
+                <ul id="patientList"></ul>
+            </div>
+        </section>
+
+        <section id="doctors" style="display:none;">
+            <div class="container">
+                <h2>Doctors</h2>
+                <button onclick="showDoctorForm()">Add Doctor</button>
+                <div id="doctorForm" style="display:none;">
+                    <h3>Register Doctor</h3>
+                    <form id="doctorRegistrationForm">
+                        <label for="doctorName">Name:</label>
+                        <input type="text" id="doctorName" name="doctorName" required><br>
+                        <label for="doctorSpecialty">Specialty:</label>
+                        <input type="text" id="doctorSpecialty" name="doctorSpecialty" required><br>
+                        <button type="button" onclick="registerDoctor()">Register</button>
+                    </form>
+                </div>
+                <h3>Doctor List</h3>
+                <ul id="doctorList"></ul>
+            </div>
+        </section>
+
+        <section id="appointments" style="display:none;">
+            <div class="container">
+                <h2>Appointments</h2>
+                <form id="appointmentForm">
+                    <label for="appointmentPatient">Patient Name:</label>
+                    <input type="text" id="appointmentPatient" name="appointmentPatient" required><br>
+                    <label for="appointmentDoctor">Doctor Name:</label>
+                    <input type="text" id="appointmentDoctor" name="appointmentDoctor" required><br>
+                    <label for="appointmentDate">Date:</label>
+                    <input type="date" id="appointmentDate" name="appointmentDate" required><br>
+                    <button type="button" onclick="bookAppointment()">Book Appointment</button>
+                </form>
+                <h3>Appointment List</h3>
+                <ul id="appointmentList"></ul>
+            </div>
+        </section>
+
+        <section id="billing" style="display:none;">
+            <div class="container">
+                <h2>Billing</h2>
+                <form id="billingForm">
+                    <label for="billingPatient">Patient Name:</label>
+                    <input type="text" id="billingPatient" name="billingPatient" required><br>
+                    <label for="billingAmount">Amount:</label>
+                    <input type="number" id="billingAmount" name="billingAmount" required><br>
+                    <label>
+                        <input type="checkbox" id="billingPaid" name="billingPaid"> Paid
+                    </label><br>
+                    <button type="button" onclick="recordBilling()">Record Billing</button>
+                </form>
+                <h3>Billing Records</h3>
+                <ul id="billingList"></ul>
+            </div>
+        </section>
+
+        <section id="prescriptions" style="display:none;">
+            <div class="container">
+                <h2>Prescriptions</h2>
+                <form id="prescriptionForm">
+                    <label for="prescriptionPatient">Patient Name:</label>
+                    <input type="text" id="prescriptionPatient" name="prescriptionPatient" required><br>
+                    <label for="prescriptionDoctor">Doctor Name:</label>
+                    <input type="text" id="prescriptionDoctor" name="prescriptionDoctor" required><br>
+                    <label for="prescriptionMedication">Medication:</label>
+                    <input type="text" id="prescriptionMedication" name="prescriptionMedication" required><br>
+                    <button type="button" onclick="prescribeMedication()">Prescribe Medication</button>
+                </form>
+                <h3>Prescription Records</h3>
+                <ul id="prescriptionList"></ul>
+            </div>
+        </section>
+
+        <section id="admin" style="display:none;">
+            <div class="container">
+                <h2>Administrative Section</h2>
+                <p>Manage staff and other administrative tasks here.</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
+
